@@ -716,11 +716,11 @@ export const events: Event[] = [
     tagline: "A Cinematic Cosmic Journey. Movie Screening of the Sci-Fi Classic.",
     description:
       "Inspired by the science fiction classic, join us for an exclusive movie screening of Project Hail Mary! Explore astrophysics, cosmos exploration, and science fiction concepts on the big screen.\n\n*Note: Registrations are currently closed.*",
-    banner: "https://i.ibb.co/xKjSqBSZ/Snap-Insta-to-747513618-18012906890864813-8751754747853431291-n.webp",
+    banner: "https://i.ibb.co/Fb5Bx89W/4a39c529-618b-4046-9579-c6f419fcb716.png",
     gallery: [
       {
         id: "g1",
-        url: "https://i.ibb.co/xKjSqBSZ/Snap-Insta-to-747513618-18012906890864813-8751754747853431291-n.webp",
+        url: "https://i.ibb.co/Fb5Bx89W/4a39c529-618b-4046-9579-c6f419fcb716.png",
         alt: "Project Hail Mary Poster",
         width: 1080,
         height: 1350
