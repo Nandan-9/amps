@@ -592,7 +592,7 @@ export default function EventsPage() {
 
       {/* ─────────── UPCOMING EVENTS ─────────── */}
       {upcomingEvents.length > 0 && (
-        <section className="py-10 md:py-14 overflow-hidden">
+        <section className="py-10 md:py-14 overflow-hidden relative bg-[#030305]/60 backdrop-blur-md border-t border-white/5">
           <div className="max-w-[1440px] mx-auto px-5 md:px-10">
             <AnimatedSection>
               <div className="flex items-end justify-between mb-10">
@@ -626,7 +626,7 @@ export default function EventsPage() {
       )}
 
       {/* ─────────── ALL EVENTS GRID ─────────── */}
-      <SpotlightSection id="events-grid" className="py-10 md:py-14">
+      <SpotlightSection id="events-grid" className="py-10 md:py-14 relative bg-[#030305]/60 backdrop-blur-md border-t border-white/5">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent" />
         <div className="max-w-[1440px] mx-auto px-5 md:px-10">
           <AnimatedSection>
@@ -781,7 +781,7 @@ export default function EventsPage() {
       </SpotlightSection>
 
       {/* ─────────── ABOUT ─────────── */}
-      <section id="about" className="py-16 md:py-20 relative border-t border-white/5">
+      <section id="about" className="py-16 md:py-20 relative border-t border-white/5 bg-[#030305]/60 backdrop-blur-md">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-950/8 to-transparent pointer-events-none" />
         <div className="max-w-[1200px] mx-auto px-5 md:px-10 relative z-10">
           <AnimatedSection>
@@ -843,7 +843,7 @@ export default function EventsPage() {
                   whileHover={{ y: -4 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.12 }}
-                  className={`relative rounded-2xl p-6 border ${item.border} overflow-hidden group`}
+                  className={`relative rounded-2xl p-6 border ${item.border} overflow-hidden group bg-white/5 backdrop-blur-xl`}
                   style={{ background: `linear-gradient(135deg, ${item.color.split(' ')[0].replace('from-', '').replace('/20', '')}20, transparent)` }}
                 >
                   <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
