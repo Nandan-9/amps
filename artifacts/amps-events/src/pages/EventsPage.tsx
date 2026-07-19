@@ -938,38 +938,38 @@ export default function EventsPage() {
             {/* ─────────── SOCIAL LINKS ─────────── */}
             <div className="mt-16 flex flex-wrap justify-center gap-4 md:gap-6">
               <a href="https://www.instagram.com/amps.amritapuri/" target="_blank" rel="noreferrer"
-                className="group relative px-6 py-3 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition-all overflow-hidden flex items-center gap-3 hover:-translate-y-1">
+                className="group relative px-6 py-3.5 rounded-full border border-purple-500/30 bg-purple-500/10 backdrop-blur-md shadow-[0_0_15px_rgba(168,85,247,0.15)] hover:shadow-[0_0_25px_rgba(168,85,247,0.4)] hover:bg-purple-500/20 hover:-translate-y-1 transition-all duration-300 overflow-hidden flex items-center gap-3">
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <span className="relative z-10 text-white/50 group-hover:text-white transition-colors">
+                <span className="relative z-10 text-purple-300 group-hover:text-white transition-colors">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                 </span>
                 <div className="relative z-10 flex flex-col items-start">
-                  <span className="text-[9px] font-black uppercase tracking-[0.2em] text-white/30 group-hover:text-purple-300 transition-colors">Official Page</span>
-                  <span className="text-sm font-medium text-white/70 group-hover:text-white transition-colors">@amps.amritapuri</span>
+                  <span className="text-[9px] font-black uppercase tracking-[0.2em] text-purple-300/60 group-hover:text-purple-200 transition-colors">Official Page</span>
+                  <span className="text-sm font-bold text-white group-hover:text-white transition-colors">@amps.amritapuri</span>
                 </div>
               </a>
 
               <a href="https://www.instagram.com/ampsmovieupdates/" target="_blank" rel="noreferrer"
-                className="group relative px-6 py-3 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition-all overflow-hidden flex items-center gap-3 hover:-translate-y-1">
+                className="group relative px-6 py-3.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 backdrop-blur-md shadow-[0_0_15px_rgba(6,182,212,0.15)] hover:shadow-[0_0_25px_rgba(6,182,212,0.4)] hover:bg-cyan-500/20 hover:-translate-y-1 transition-all duration-300 overflow-hidden flex items-center gap-3">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <span className="relative z-10 text-white/50 group-hover:text-white transition-colors">
+                <span className="relative z-10 text-cyan-300 group-hover:text-white transition-colors">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                 </span>
                 <div className="relative z-10 flex flex-col items-start">
-                  <span className="text-[9px] font-black uppercase tracking-[0.2em] text-white/30 group-hover:text-cyan-300 transition-colors">Movie Updates</span>
-                  <span className="text-sm font-medium text-white/70 group-hover:text-white transition-colors">@ampsmovieupdates</span>
+                  <span className="text-[9px] font-black uppercase tracking-[0.2em] text-cyan-300/60 group-hover:text-cyan-200 transition-colors">Movie Updates</span>
+                  <span className="text-sm font-bold text-white group-hover:text-white transition-colors">@ampsmovieupdates</span>
                 </div>
               </a>
 
               <a href="https://www.instagram.com/anicom.amps/" target="_blank" rel="noreferrer"
-                className="group relative px-6 py-3 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition-all overflow-hidden flex items-center gap-3 hover:-translate-y-1">
+                className="group relative px-6 py-3.5 rounded-full border border-amber-500/30 bg-amber-500/10 backdrop-blur-md shadow-[0_0_15px_rgba(245,158,11,0.15)] hover:shadow-[0_0_25px_rgba(245,158,11,0.4)] hover:bg-amber-500/20 hover:-translate-y-1 transition-all duration-300 overflow-hidden flex items-center gap-3">
                 <div className="absolute inset-0 bg-gradient-to-r from-amber-500/20 to-orange-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <span className="relative z-10 text-white/50 group-hover:text-white transition-colors">
+                <span className="relative z-10 text-amber-300 group-hover:text-white transition-colors">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                 </span>
                 <div className="relative z-10 flex flex-col items-start">
-                  <span className="text-[9px] font-black uppercase tracking-[0.2em] text-white/30 group-hover:text-amber-300 transition-colors">Anicom Events</span>
-                  <span className="text-sm font-medium text-white/70 group-hover:text-white transition-colors">@anicom.amps</span>
+                  <span className="text-[9px] font-black uppercase tracking-[0.2em] text-amber-300/60 group-hover:text-amber-200 transition-colors">Anicom Events</span>
+                  <span className="text-sm font-bold text-white group-hover:text-white transition-colors">@anicom.amps</span>
                 </div>
               </a>
             </div>
