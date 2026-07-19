@@ -221,7 +221,7 @@ export default function EventsPage() {
       {/* ─────────── NAV ─────────── */}
       <nav className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-[#030305]/90 backdrop-blur-xl border-b border-white/8 py-3 shadow-2xl shadow-black/50'
+          ? 'bg-[#030305]/40 backdrop-blur-xl border-b border-white/10 py-3 shadow-2xl shadow-black/50'
           : 'bg-transparent py-5'
       }`}>
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 flex items-center justify-between">
@@ -455,7 +455,7 @@ export default function EventsPage() {
       </section>
 
       {/* ─────────── MARQUEE TICKER ─────────── */}
-      <div className="relative border-y border-white/6 bg-white/[0.015] overflow-hidden py-3">
+      <div className="relative border-y border-white/10 bg-white/5 backdrop-blur-lg overflow-hidden py-3">
         <div className="flex animate-marquee whitespace-nowrap">
           {MARQUEE_ITEMS.map((item, i) => (
             <span key={i} className="inline-flex items-center gap-4 mx-6 text-[11px] font-bold tracking-[0.25em] text-white/25 uppercase">
@@ -480,8 +480,8 @@ export default function EventsPage() {
               <motion.div
                 whileHover={{ scale: 1.005 }}
                 transition={{ type: 'spring', stiffness: 200, damping: 30 }}
-                className="relative rounded-3xl overflow-hidden border border-white/8"
-                style={{ background: 'linear-gradient(135deg,rgba(20,10,40,0.97) 0%,rgba(5,5,15,0.99) 100%)' }}
+                className="relative rounded-3xl overflow-hidden border border-white/10 backdrop-blur-2xl"
+                style={{ background: 'linear-gradient(135deg,rgba(20,10,40,0.5) 0%,rgba(5,5,15,0.4) 100%)' }}
               >
                 {/* Banner bg */}
                 <div className="absolute inset-0 overflow-hidden">

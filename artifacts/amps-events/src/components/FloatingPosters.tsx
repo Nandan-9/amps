@@ -25,36 +25,33 @@ const POSTERS = [
   "https://image.tmdb.org/t/p/w500/u3bZgnGQ9T01sWNhyveQz0wH0Hl.jpg"  // Game of Thrones (or equivalent iconic poster)
 ];
 
-const SinglePoster = ({ windowSize, initialDelay }: { windowSize: { width: number, height: number }, initialDelay: boolean }) => {
-  const [key, setKey] = useState(0);
-
+const SinglePoster = ({ windowSize }: { windowSize: { width: number, height: number } }) => {
   // Re-roll everything when key changes (which happens when animation completes)
   const poster = POSTERS[Math.floor(Math.random() * POSTERS.length)];
+  
+  // Start anywhere on the screen
   const startX = Math.random() * windowSize.width;
-  // Start slightly below the screen so it enters immediately
-  const startY = windowSize.height + 250; 
-  // End way above the screen to ensure it floats completely off
-  const endY = -800;
+  const startY = Math.random() * windowSize.height;
   
-  const xDrift = (Math.random() - 0.5) * 300;
+  // Float randomly in any direction
+  const driftX = (Math.random() - 0.5) * 600;
+  const driftY = (Math.random() - 0.5) * 600;
   
-  // Slower, elegant floating speed (30s to 60s)
-  const duration = 30 + Math.random() * 30; 
+  // Slower, elegant floating speed (40s to 80s)
+  const duration = 40 + Math.random() * 40; 
   
-  // Distribute the initial posters across the entire vertical space by using negative delays 
-  // spanning the maximum duration.
-  const delay = (initialDelay && key === 0) ? -(Math.random() * 60) : 0;
+  // Random negative delay so they are all already moving when page loads
+  const delay = -(Math.random() * 80);
   
   const scale = 0.5 + Math.random() * 0.7;
   const rotateStart = (Math.random() - 0.5) * 20;
-  const rotateEnd = rotateStart + (Math.random() - 0.5) * 40;
+  const rotateEnd = rotateStart + (Math.random() - 0.5) * 60;
   
   // Mix up blurs from sharp (0px) to very blurry (5px)
   const blurAmount = Math.random() * 5;
 
   return (
     <motion.div
-      key={key}
       className="absolute rounded-xl overflow-hidden shadow-2xl border border-white/10"
       style={{
         width: 250,
@@ -64,15 +61,13 @@ const SinglePoster = ({ windowSize, initialDelay }: { windowSize: { width: numbe
         opacity: 0.8 - (blurAmount * 0.1), 
       }}
       initial={{ x: startX, y: startY, rotate: rotateStart, scale: scale }}
-      animate={{ x: startX + xDrift, y: endY, rotate: rotateEnd }}
-      transition={{ duration, ease: "linear", delay }}
-      onAnimationComplete={() => setKey(prev => prev + 1)} // Reset and re-roll!
+      animate={{ x: startX + driftX, y: startY + driftY, rotate: rotateEnd }}
+      transition={{ duration, ease: "easeInOut", delay, repeat: Infinity, repeatType: "mirror" }}
     >
       <img 
         src={poster} 
         alt="Movie Poster" 
         className="w-full h-full object-cover mix-blend-luminosity brightness-75"
-        loading="lazy"
       />
     </motion.div>
   );
@@ -98,7 +93,7 @@ export const FloatingPosters: React.FC = () => {
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none mix-blend-screen opacity-80 z-0" style={{ pointerEvents: 'none' }}>
       {[...Array(40)].map((_, i) => (
-        <SinglePoster key={`slot-${i}`} windowSize={windowSize} initialDelay={true} />
+        <SinglePoster key={`slot-${i}`} windowSize={windowSize} />
       ))}
     </div>
   );

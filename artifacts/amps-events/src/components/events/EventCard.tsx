@@ -90,10 +90,10 @@ export function EventCard({ event, className = '' }: EventCardProps) {
 
         {/* Card background */}
         <div
-          className="absolute inset-0 rounded-2xl"
+          className="absolute inset-0 rounded-2xl backdrop-blur-xl"
           style={{
-            background: 'linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%)',
-            border: '1px solid rgba(255,255,255,0.08)',
+            background: 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%)',
+            border: '1px solid rgba(255,255,255,0.1)',
           }}
         />
 
