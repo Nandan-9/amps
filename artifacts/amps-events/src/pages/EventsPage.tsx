@@ -210,6 +210,7 @@ export default function EventsPage() {
       className="min-h-screen bg-[#030305] text-white selection:bg-purple-500/30 selection:text-purple-200 overflow-x-hidden"
       style={{ cursor: 'none' }}
     >
+      <FloatingPosters />
       {/* ── Intro overlay — shown on first visit each session ── */}
       {showIntro && <IntroVideo onComplete={dismissIntro} />}
 
@@ -281,7 +282,6 @@ export default function EventsPage() {
           <div className="absolute inset-0 bg-[#030305]" />
           {/* Grid dots */}
           <div className="absolute inset-0 grid-dots opacity-50" />
-          <FloatingPosters />
         </motion.div>
 
         {/* Orbs that track mouse (subtle) */}

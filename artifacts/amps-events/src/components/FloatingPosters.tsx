@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
+// Expanded pool of famous movie posters
 const POSTERS = [
   "https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg", // Interstellar
   "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg", // The Dark Knight
@@ -13,8 +14,60 @@ const POSTERS = [
   "https://image.tmdb.org/t/p/w500/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg", // Avengers: Infinity War
   "https://image.tmdb.org/t/p/w500/saHP97rTPS5eLmrLQEcANmKrsFl.jpg", // Forrest Gump
   "https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg", // The Godfather
-  "https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg"  // Parasite
+  "https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg", // Parasite
+  "https://image.tmdb.org/t/p/w500/bptfVGEQuv6vDTIMVCHjJ9Dz8PX.jpg", // Jurassic Park
+  "https://image.tmdb.org/t/p/w500/6oom5QYQ2yQTMJIhq9LN1V1514h.jpg", // Lord of the Rings
+  "https://image.tmdb.org/t/p/w500/dXNAPwY7VrqMAo51EKhhCJfaGb5.jpg", // The Terminator
+  "https://image.tmdb.org/t/p/w500/sF1U4EUQS8YHUYjNclRUBiGQGOv.jpg", // Spirited Away
+  "https://image.tmdb.org/t/p/w500/yJdeWaVXa2se9agI6B4mQunVYpO.jpg", // Back to the Future
+  "https://image.tmdb.org/t/p/w500/2l05cFWJiqzD392LzO5B6iY11Zc.jpg", // Spider-Man Into the Spider-Verse
+  "https://image.tmdb.org/t/p/w500/811DjJTon9gD6hZ8nCjMfbPNAi9.jpg", // Oppenheimer
+  "https://image.tmdb.org/t/p/w500/u3bZgnGQ9T01sWNhyveQz0wH0Hl.jpg"  // Game of Thrones (or equivalent iconic poster)
 ];
+
+const SinglePoster = ({ windowSize, initialDelay }: { windowSize: { width: number, height: number }, initialDelay: boolean }) => {
+  const [key, setKey] = useState(0);
+
+  // Re-roll everything when key changes (which happens when animation completes)
+  const poster = POSTERS[Math.floor(Math.random() * POSTERS.length)];
+  const startX = Math.random() * windowSize.width;
+  const startY = windowSize.height + Math.random() * 500;
+  const endY = -1000 - Math.random() * 500;
+  const xDrift = (Math.random() - 0.5) * 400;
+  
+  const duration = 25 + Math.random() * 20; 
+  // Only apply negative delay on the very first mount so they are spread out initially
+  const delay = (initialDelay && key === 0) ? Math.random() * -30 : 0;
+  
+  const scale = 0.5 + Math.random() * 0.8;
+  const rotateStart = (Math.random() - 0.5) * 30;
+  const rotateEnd = rotateStart + (Math.random() - 0.5) * 60;
+  const blurAmount = 1 + Math.random() * 4;
+
+  return (
+    <motion.div
+      key={key}
+      className="absolute rounded-xl overflow-hidden shadow-2xl border border-white/10"
+      style={{
+        width: 250,
+        height: 375, // Standard poster ratio
+        filter: `blur(${blurAmount}px)`,
+        opacity: 0.7 - (blurAmount * 0.1), // More blur = less opacity
+      }}
+      initial={{ x: startX, y: startY, rotate: rotateStart, scale: scale }}
+      animate={{ x: startX + xDrift, y: endY, rotate: rotateEnd }}
+      transition={{ duration, ease: "linear", delay }}
+      onAnimationComplete={() => setKey(prev => prev + 1)} // Reset and re-roll!
+    >
+      <img 
+        src={poster} 
+        alt="Movie Poster" 
+        className="w-full h-full object-cover mix-blend-luminosity brightness-75"
+        loading="lazy"
+      />
+    </motion.div>
+  );
+};
 
 export const FloatingPosters: React.FC = () => {
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
@@ -32,68 +85,12 @@ export const FloatingPosters: React.FC = () => {
 
   if (windowSize.width === 0) return null;
 
+  // Render exactly 15 active floating posters at any time
   return (
-    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none mix-blend-screen opacity-30">
-      {POSTERS.map((poster, i) => {
-        // Randomize starting properties for each poster
-        const startX = Math.random() * windowSize.width;
-        const startY = windowSize.height + Math.random() * 500;
-        
-        // Randomize the destination Y
-        const endY = -1000 - Math.random() * 500;
-        
-        // Randomize horizontal drift
-        const xDrift = (Math.random() - 0.5) * 400;
-        
-        // Randomize speeds and delays
-        const duration = 25 + Math.random() * 20; // 25s to 45s
-        const delay = Math.random() * -30; // Negative delay to start mid-animation
-        
-        // Randomize scale and rotation
-        const scale = 0.5 + Math.random() * 0.8;
-        const rotateStart = (Math.random() - 0.5) * 30;
-        const rotateEnd = rotateStart + (Math.random() - 0.5) * 60;
-        
-        // Randomize blurring to create depth
-        const blurAmount = 1 + Math.random() * 4;
-
-        return (
-          <motion.div
-            key={i}
-            className="absolute rounded-xl overflow-hidden shadow-2xl border border-white/10"
-            style={{
-              width: 250,
-              height: 375, // Standard poster ratio
-              filter: `blur(${blurAmount}px)`,
-              opacity: 0.7 - (blurAmount * 0.1), // More blur = less opacity
-            }}
-            initial={{
-              x: startX,
-              y: startY,
-              rotate: rotateStart,
-              scale: scale,
-            }}
-            animate={{
-              x: startX + xDrift,
-              y: endY,
-              rotate: rotateEnd,
-            }}
-            transition={{
-              duration: duration,
-              repeat: Infinity,
-              ease: "linear",
-              delay: delay,
-            }}
-          >
-            <img 
-              src={poster} 
-              alt="Movie Poster" 
-              className="w-full h-full object-cover mix-blend-luminosity brightness-75"
-              loading="lazy"
-            />
-          </motion.div>
-        );
-      })}
+    <div className="fixed inset-0 overflow-hidden pointer-events-none mix-blend-screen opacity-30 z-[-1]" style={{ pointerEvents: 'none' }}>
+      {[...Array(15)].map((_, i) => (
+        <SinglePoster key={`slot-${i}`} windowSize={windowSize} initialDelay={true} />
+      ))}
     </div>
   );
 };
