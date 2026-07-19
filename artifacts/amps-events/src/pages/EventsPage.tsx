@@ -884,9 +884,9 @@ export default function EventsPage() {
               className="mb-4 text-white"
               style={{ fontFamily: 'var(--app-font-headline)', fontSize: 'clamp(52px,9vw,120px)', letterSpacing: '0.04em', lineHeight: 0.95 }}
             >
-              <WordReveal text="JOIN THE" className="block" delay={0} />
+              <span className="block">JOIN THE</span>
               <span className="block bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
-                <WordReveal text="COMMUNITY" delay={0.1} />
+                COMMUNITY
               </span>
             </h2>
             <p className="text-sm text-white/35 mb-12 max-w-md mx-auto font-light tracking-wide leading-relaxed">
