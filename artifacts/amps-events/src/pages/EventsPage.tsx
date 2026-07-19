@@ -20,6 +20,8 @@ import { CustomCursor } from '@/components/ui/CustomCursor';
 import { ScrollProgress } from '@/components/ui/ScrollProgress';
 import { Magnetic } from '@/components/ui/Magnetic';
 import { ParticleField } from '@/components/ui/ParticleField';
+import { ErrorBoundary } from '../components/ErrorBoundary';
+import { FloatingPosters } from '../components/FloatingPosters';
 import { IntroVideo } from '@/components/ui/IntroVideo';
 import { useAnimatedCounter } from '@/hooks/useAnimatedCounter';
 
@@ -279,6 +281,7 @@ export default function EventsPage() {
           <div className="absolute inset-0 bg-[#030305]" />
           {/* Grid dots */}
           <div className="absolute inset-0 grid-dots opacity-50" />
+          <FloatingPosters />
         </motion.div>
 
         {/* Orbs that track mouse (subtle) */}
