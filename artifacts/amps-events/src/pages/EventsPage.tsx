@@ -279,7 +279,6 @@ export default function EventsPage() {
       >
         {/* Layered parallax backgrounds */}
         <motion.div style={{ y: heroLayer1Y }} className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-[#030305]" />
           {/* Grid dots */}
           <div className="absolute inset-0 grid-dots opacity-50" />
         </motion.div>

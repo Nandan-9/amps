@@ -87,7 +87,7 @@ export const FloatingPosters: React.FC = () => {
 
   // Render exactly 15 active floating posters at any time
   return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none mix-blend-screen opacity-30 z-[-1]" style={{ pointerEvents: 'none' }}>
+    <div className="fixed inset-0 overflow-hidden pointer-events-none mix-blend-screen opacity-80 z-0" style={{ pointerEvents: 'none' }}>
       {[...Array(15)].map((_, i) => (
         <SinglePoster key={`slot-${i}`} windowSize={windowSize} initialDelay={true} />
       ))}
