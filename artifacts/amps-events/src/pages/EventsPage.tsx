@@ -469,10 +469,10 @@ export default function EventsPage() {
         <SpotlightSection className="py-10 md:py-14" id="featured">
           <div className="max-w-[1440px] mx-auto px-5 md:px-10">
             <AnimatedSection>
-              <div className="flex items-center gap-4 mb-8">
-                <div className="w-12 h-px bg-gradient-to-r from-amber-400 to-orange-500" />
-                <span className="text-2xl font-bold uppercase tracking-[0.3em] text-amber-400">Featured Event</span>
-                <div className="flex-1 h-px bg-white/6" />
+              <div className="flex items-center gap-1 mb-8 group cursor-default">
+                <div className="w-12 md:w-16 h-[2px] bg-gradient-to-r from-amber-400 to-orange-500 group-hover:shadow-[0_0_15px_rgba(251,191,36,0.8)] transition-all duration-500" />
+                <span className="text-5xl md:text-7xl font-black uppercase tracking-widest text-transparent group-hover:text-amber-300 group-hover:drop-shadow-[0_0_25px_rgba(251,191,36,0.9)] transition-all duration-500" style={{ WebkitTextStroke: '1.5px rgba(251,191,36,0.7)', fontFamily: 'var(--app-font-headline)' }}>Featured Event</span>
+                <div className="flex-1 h-px bg-white/6 ml-4" />
               </div>
 
               <motion.div
