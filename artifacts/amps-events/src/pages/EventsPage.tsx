@@ -502,8 +502,8 @@ export default function EventsPage() {
                     </div>
 
                     <h2
-                      className="text-4xl md:text-6xl lg:text-7xl text-white mb-4 leading-none"
-                      style={{ fontFamily: 'var(--app-font-headline)', letterSpacing: '0.04em' }}
+                      className="text-5xl md:text-7xl lg:text-[85px] w-fit text-transparent hover:text-amber-300 hover:drop-shadow-[0_0_30px_rgba(251,191,36,0.8)] transition-all duration-500 mb-6 leading-none cursor-default"
+                      style={{ fontFamily: 'var(--app-font-headline)', letterSpacing: '0.04em', WebkitTextStroke: '2px rgba(251,191,36,0.6)' }}
                     >
                       {featuredEvent.title}
                     </h2>
