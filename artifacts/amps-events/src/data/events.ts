@@ -112,25 +112,6 @@ export const events: Event[] = [
   },
 
   {
-    id: "7",
-    slug: "movie-day-out-chhaava",
-    title: "Movie Day Out: A Blockbuster Experience with CHHAAVA",
-    tagline: "More Than a Movie—An Experience Shared Together.",
-    category: "Movie Screening",
-    status: "completed",
-    banner: "https://i.ibb.co/8DRg7tF4/Snap-Insta-to-581662933-17985648437864813-6521136725544911303-n.jpg",
-    gallery: [
-      {
-        id: "g1",
-        url: "https://i.ibb.co/8DRg7tF4/Snap-Insta-to-581662933-17985648437864813-6521136725544911303-n.jpg",
-        alt: "Movie Day Out Screening",
-        width: 1200,
-        height: 800
-      }
-    ]
-  },
-
-  {
     id: "14",
     slug: "kalki-2898-ad",
     title: "Kalki 2898 AD",
