@@ -599,7 +599,7 @@ export default function EventsPage() {
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    className="flex items-center gap-3 mb-3"
+                    className="flex items-center gap-1 mb-1 md:mb-0"
                   >
                     <div className="w-12 md:w-16 h-[2px] bg-gradient-to-r from-cyan-400 to-blue-500" />
                     <span className="text-4xl md:text-5xl font-black uppercase tracking-widest text-transparent" style={{ WebkitTextStroke: '1.5px rgba(34,211,238,0.7)', fontFamily: 'var(--app-font-headline)' }}>Don't Miss</span>
@@ -634,7 +634,7 @@ export default function EventsPage() {
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  className="flex items-center gap-3 mb-3"
+                  className="flex items-center gap-1 mb-1 md:mb-0"
                 >
                   <div className="w-12 md:w-16 h-[2px] bg-gradient-to-r from-purple-400 to-violet-500" />
                   <span className="text-4xl md:text-5xl font-black uppercase tracking-widest text-transparent" style={{ WebkitTextStroke: '1.5px rgba(192,132,252,0.7)', fontFamily: 'var(--app-font-headline)' }}>Browse</span>
