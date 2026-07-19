@@ -599,10 +599,10 @@ export default function EventsPage() {
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    className="flex items-center gap-1 mb-1 md:mb-0"
+                    className="flex items-center gap-1 mb-1 md:mb-0 group cursor-default"
                   >
-                    <div className="w-12 md:w-16 h-[2px] bg-gradient-to-r from-cyan-400 to-blue-500" />
-                    <span className="text-5xl md:text-7xl font-black uppercase tracking-widest text-transparent" style={{ WebkitTextStroke: '1.5px rgba(34,211,238,0.7)', fontFamily: 'var(--app-font-headline)' }}>Don't Miss</span>
+                    <div className="w-12 md:w-16 h-[2px] bg-gradient-to-r from-cyan-400 to-blue-500 group-hover:shadow-[0_0_15px_rgba(34,211,238,0.8)] transition-all duration-500" />
+                    <span className="text-5xl md:text-7xl font-black uppercase tracking-widest text-transparent group-hover:text-cyan-300 group-hover:drop-shadow-[0_0_25px_rgba(34,211,238,0.9)] transition-all duration-500" style={{ WebkitTextStroke: '1.5px rgba(34,211,238,0.7)', fontFamily: 'var(--app-font-headline)' }}>Don't Miss</span>
                   </motion.div>
                   <h2 style={{ fontFamily: 'var(--app-font-headline)', fontSize: 'clamp(36px,5vw,72px)', letterSpacing: '0.04em', lineHeight: 0.95 }} className="text-white">
                     <WordReveal text="UPCOMING EVENTS" delay={0.05} />
@@ -634,10 +634,10 @@ export default function EventsPage() {
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  className="flex items-center gap-1 mb-1 md:mb-0"
+                  className="flex items-center gap-1 mb-1 md:mb-0 group cursor-default"
                 >
-                  <div className="w-12 md:w-16 h-[2px] bg-gradient-to-r from-purple-400 to-violet-500" />
-                  <span className="text-5xl md:text-7xl font-black uppercase tracking-widest text-transparent" style={{ WebkitTextStroke: '1.5px rgba(192,132,252,0.7)', fontFamily: 'var(--app-font-headline)' }}>Browse</span>
+                  <div className="w-12 md:w-16 h-[2px] bg-gradient-to-r from-purple-400 to-violet-500 group-hover:shadow-[0_0_15px_rgba(192,132,252,0.8)] transition-all duration-500" />
+                  <span className="text-5xl md:text-7xl font-black uppercase tracking-widest text-transparent group-hover:text-purple-300 group-hover:drop-shadow-[0_0_25px_rgba(192,132,252,0.9)] transition-all duration-500" style={{ WebkitTextStroke: '1.5px rgba(192,132,252,0.7)', fontFamily: 'var(--app-font-headline)' }}>Browse</span>
                 </motion.div>
                 <h2 style={{ fontFamily: 'var(--app-font-headline)', fontSize: 'clamp(36px,5vw,72px)', letterSpacing: '0.04em', lineHeight: 0.95 }} className="text-white">
                   <WordReveal text="ALL EVENTS" delay={0.05} />
