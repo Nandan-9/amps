@@ -31,18 +31,26 @@ const SinglePoster = ({ windowSize, initialDelay }: { windowSize: { width: numbe
   // Re-roll everything when key changes (which happens when animation completes)
   const poster = POSTERS[Math.floor(Math.random() * POSTERS.length)];
   const startX = Math.random() * windowSize.width;
-  const startY = windowSize.height + Math.random() * 500;
-  const endY = -1000 - Math.random() * 500;
-  const xDrift = (Math.random() - 0.5) * 400;
+  // Start slightly below the screen so it enters immediately
+  const startY = windowSize.height + 250; 
+  // End way above the screen to ensure it floats completely off
+  const endY = -800;
   
-  const duration = 25 + Math.random() * 20; 
-  // Only apply negative delay on the very first mount so they are spread out initially
-  const delay = (initialDelay && key === 0) ? Math.random() * -30 : 0;
+  const xDrift = (Math.random() - 0.5) * 300;
   
-  const scale = 0.5 + Math.random() * 0.8;
-  const rotateStart = (Math.random() - 0.5) * 30;
-  const rotateEnd = rotateStart + (Math.random() - 0.5) * 60;
-  const blurAmount = 1 + Math.random() * 4;
+  // Slower, elegant floating speed (30s to 60s)
+  const duration = 30 + Math.random() * 30; 
+  
+  // Distribute the initial posters across the entire vertical space by using negative delays 
+  // spanning the maximum duration.
+  const delay = (initialDelay && key === 0) ? -(Math.random() * 60) : 0;
+  
+  const scale = 0.5 + Math.random() * 0.7;
+  const rotateStart = (Math.random() - 0.5) * 20;
+  const rotateEnd = rotateStart + (Math.random() - 0.5) * 40;
+  
+  // Mix up blurs from sharp (0px) to very blurry (5px)
+  const blurAmount = Math.random() * 5;
 
   return (
     <motion.div
@@ -52,7 +60,8 @@ const SinglePoster = ({ windowSize, initialDelay }: { windowSize: { width: numbe
         width: 250,
         height: 375, // Standard poster ratio
         filter: `blur(${blurAmount}px)`,
-        opacity: 0.7 - (blurAmount * 0.1), // More blur = less opacity
+        // We ensure opacity stays between 0.3 (blurry) and 0.8 (sharp)
+        opacity: 0.8 - (blurAmount * 0.1), 
       }}
       initial={{ x: startX, y: startY, rotate: rotateStart, scale: scale }}
       animate={{ x: startX + xDrift, y: endY, rotate: rotateEnd }}
@@ -85,10 +94,10 @@ export const FloatingPosters: React.FC = () => {
 
   if (windowSize.width === 0) return null;
 
-  // Render exactly 15 active floating posters at any time
+  // Render 40 active floating posters to keep the background partially filled
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none mix-blend-screen opacity-80 z-0" style={{ pointerEvents: 'none' }}>
-      {[...Array(15)].map((_, i) => (
+      {[...Array(40)].map((_, i) => (
         <SinglePoster key={`slot-${i}`} windowSize={windowSize} initialDelay={true} />
       ))}
     </div>
