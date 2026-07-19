@@ -602,7 +602,7 @@ export default function EventsPage() {
                     className="flex items-center gap-3 mb-3"
                   >
                     <div className="w-8 h-px bg-gradient-to-r from-cyan-400 to-blue-500" />
-                    <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-cyan-400">Don't Miss</span>
+                    <span className="text-2xl font-bold uppercase tracking-[0.3em] text-cyan-400">Don't Miss</span>
                   </motion.div>
                   <h2 style={{ fontFamily: 'var(--app-font-headline)', fontSize: 'clamp(36px,5vw,72px)', letterSpacing: '0.04em', lineHeight: 0.95 }} className="text-white">
                     <WordReveal text="UPCOMING EVENTS" delay={0.05} />
@@ -637,7 +637,7 @@ export default function EventsPage() {
                   className="flex items-center gap-3 mb-3"
                 >
                   <div className="w-8 h-px bg-gradient-to-r from-purple-400 to-violet-500" />
-                  <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-purple-400">Browse</span>
+                  <span className="text-2xl font-bold uppercase tracking-[0.3em] text-purple-400">Browse</span>
                 </motion.div>
                 <h2 style={{ fontFamily: 'var(--app-font-headline)', fontSize: 'clamp(36px,5vw,72px)', letterSpacing: '0.04em', lineHeight: 0.95 }} className="text-white">
                   <WordReveal text="ALL EVENTS" delay={0.05} />
