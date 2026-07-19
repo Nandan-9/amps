@@ -402,11 +402,11 @@ export const events: Event[] = [
     tagline: "Own the Power of Creating Anything.",
     description:
       "Become the G.O.A.T. (Greatest Creator of All Time) by mastering industry-leading creative software. This hands-on workshop introduces participants to Adobe Photoshop, Adobe Premiere Pro, and Adobe After Effects through practical sessions designed for aspiring designers, editors, and digital creators.\n\nWhether you're just starting or looking to sharpen your creative skills, this workshop will equip you with the fundamentals needed to bring your ideas to life.",
-    banner: "https://i.ibb.co/QjDQgxWk/Snap-Insta-to-748043815-18012846917864813-1569723410867848436-n.webp",
+    banner: "https://i.ibb.co/HDjtkhHx/cd91e9f2-b3c3-4c10-86fe-272b06165744.png",
     gallery: [
       {
         id: "g1",
-        url: "https://i.ibb.co/QjDQgxWk/Snap-Insta-to-748043815-18012846917864813-1569723410867848436-n.webp",
+        url: "https://i.ibb.co/HDjtkhHx/cd91e9f2-b3c3-4c10-86fe-272b06165744.png",
         alt: "Creativity Workshop Poster",
         width: 1024,
         height: 1280
