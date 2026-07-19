@@ -505,7 +505,7 @@ export default function EventsPage() {
                       className="text-4xl md:text-6xl lg:text-7xl text-white mb-4 leading-none"
                       style={{ fontFamily: 'var(--app-font-headline)', letterSpacing: '0.04em' }}
                     >
-                      <WordReveal text={featuredEvent.title} delay={0.1} />
+                      {featuredEvent.title}
                     </h2>
                     <p className="text-base md:text-lg text-white/55 mb-8 leading-relaxed font-light">
                       {featuredEvent.tagline}
