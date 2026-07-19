@@ -398,6 +398,7 @@ export const events: Event[] = [
     id: "9",
     slug: "creativity-workshop",
     title: "Creativity Workshop",
+    featured: true,
     tagline: "Own the Power of Creating Anything.",
     description:
       "Become the G.O.A.T. (Greatest Creator of All Time) by mastering industry-leading creative software. This hands-on workshop introduces participants to Adobe Photoshop, Adobe Premiere Pro, and Adobe After Effects through practical sessions designed for aspiring designers, editors, and digital creators.\n\nWhether you're just starting or looking to sharpen your creative skills, this workshop will equip you with the fundamentals needed to bring your ideas to life.",

@@ -466,12 +466,12 @@ export default function EventsPage() {
 
       {/* ─────────── FEATURED EVENT ─────────── */}
       {featuredEvent && (
-        <SpotlightSection className="py-20 md:py-28" id="featured">
+        <SpotlightSection className="py-10 md:py-14" id="featured">
           <div className="max-w-[1440px] mx-auto px-5 md:px-10">
             <AnimatedSection>
               <div className="flex items-center gap-4 mb-8">
                 <div className="w-12 h-px bg-gradient-to-r from-amber-400 to-orange-500" />
-                <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-amber-400">Featured Event</span>
+                <span className="text-2xl font-bold uppercase tracking-[0.3em] text-amber-400">Featured Event</span>
                 <div className="flex-1 h-px bg-white/6" />
               </div>
 
@@ -590,7 +590,7 @@ export default function EventsPage() {
 
       {/* ─────────── UPCOMING EVENTS ─────────── */}
       {upcomingEvents.length > 0 && (
-        <section className="py-20 md:py-28 overflow-hidden">
+        <section className="py-10 md:py-14 overflow-hidden">
           <div className="max-w-[1440px] mx-auto px-5 md:px-10">
             <AnimatedSection>
               <div className="flex items-end justify-between mb-10">
@@ -624,7 +624,7 @@ export default function EventsPage() {
       )}
 
       {/* ─────────── ALL EVENTS GRID ─────────── */}
-      <SpotlightSection id="events-grid" className="py-20 md:py-28">
+      <SpotlightSection id="events-grid" className="py-10 md:py-14">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent" />
         <div className="max-w-[1440px] mx-auto px-5 md:px-10">
           <AnimatedSection>
