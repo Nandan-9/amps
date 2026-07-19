@@ -10,7 +10,6 @@ import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 
 import { events } from '@/data/events';
-import { stats } from '@/data/stats';
 import { filterEvents, sortEvents } from '@/utils/eventUtils';
 import type { Event, EventCategory, EventStatus } from '@/types/event';
 
@@ -65,38 +64,6 @@ function WordReveal({ text, className = '', delay = 0 }: { text: string; classNa
         </motion.span>
       ))}
     </span>
-  );
-}
-
-// ─── Stat card ──────────────────────────────────────────────────────────────
-function StatCard({ stat, index }: { stat: typeof stats[0]; index: number }) {
-  const { count, ref } = useAnimatedCounter(stat.value, 2500);
-  const gradients = [
-    'from-violet-500 to-purple-600', 'from-cyan-400 to-blue-500',
-    'from-pink-500 to-rose-500', 'from-amber-400 to-orange-500',
-    'from-emerald-400 to-teal-500', 'from-indigo-400 to-violet-500',
-  ];
-  const g = gradients[index % gradients.length];
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      whileHover={{ y: -4, scale: 1.02 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.08 }}
-      className="relative group overflow-hidden rounded-xl p-5 border border-white/8 cursor-default"
-      style={{ background: 'linear-gradient(135deg,rgba(255,255,255,.05) 0%,rgba(255,255,255,.02) 100%)' }}
-    >
-      {/* Hover glow */}
-      <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br ${g} blur-2xl`} style={{ opacity: 0.06 }} />
-      <div className={`text-3xl lg:text-4xl font-bold bg-gradient-to-r ${g} bg-clip-text text-transparent mb-1`}
-        style={{ fontFamily: 'var(--app-font-headline)', letterSpacing: '0.05em' }}>
-        {count}{stat.suffix}
-      </div>
-      <div className="text-[10px] font-bold text-white/35 uppercase tracking-widest">{stat.label}</div>
-      <div className={`absolute bottom-0 left-0 h-[2px] w-full bg-gradient-to-r ${g}`} />
-    </motion.div>
   );
 }
 
@@ -620,15 +587,6 @@ export default function EventsPage() {
           </div>
         </SpotlightSection>
       )}
-
-      {/* ─────────── STATS BAR ─────────── */}
-      <SpotlightSection className="py-10 border-y border-white/5">
-        <div className="max-w-[1440px] mx-auto px-5 md:px-10">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-            {stats.map((stat, i) => <StatCard key={stat.label} stat={stat} index={i} />)}
-          </div>
-        </div>
-      </SpotlightSection>
 
       {/* ─────────── UPCOMING EVENTS ─────────── */}
       {upcomingEvents.length > 0 && (
