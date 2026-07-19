@@ -601,8 +601,8 @@ export default function EventsPage() {
                     viewport={{ once: true }}
                     className="flex items-center gap-3 mb-3"
                   >
-                    <div className="w-8 h-px bg-gradient-to-r from-cyan-400 to-blue-500" />
-                    <span className="text-2xl font-bold uppercase tracking-[0.3em] text-cyan-400">Don't Miss</span>
+                    <div className="w-12 md:w-16 h-[2px] bg-gradient-to-r from-cyan-400 to-blue-500" />
+                    <span className="text-4xl md:text-5xl font-black uppercase tracking-widest text-transparent" style={{ WebkitTextStroke: '1.5px rgba(34,211,238,0.7)', fontFamily: 'var(--app-font-headline)' }}>Don't Miss</span>
                   </motion.div>
                   <h2 style={{ fontFamily: 'var(--app-font-headline)', fontSize: 'clamp(36px,5vw,72px)', letterSpacing: '0.04em', lineHeight: 0.95 }} className="text-white">
                     <WordReveal text="UPCOMING EVENTS" delay={0.05} />
@@ -636,8 +636,8 @@ export default function EventsPage() {
                   viewport={{ once: true }}
                   className="flex items-center gap-3 mb-3"
                 >
-                  <div className="w-8 h-px bg-gradient-to-r from-purple-400 to-violet-500" />
-                  <span className="text-2xl font-bold uppercase tracking-[0.3em] text-purple-400">Browse</span>
+                  <div className="w-12 md:w-16 h-[2px] bg-gradient-to-r from-purple-400 to-violet-500" />
+                  <span className="text-4xl md:text-5xl font-black uppercase tracking-widest text-transparent" style={{ WebkitTextStroke: '1.5px rgba(192,132,252,0.7)', fontFamily: 'var(--app-font-headline)' }}>Browse</span>
                 </motion.div>
                 <h2 style={{ fontFamily: 'var(--app-font-headline)', fontSize: 'clamp(36px,5vw,72px)', letterSpacing: '0.04em', lineHeight: 0.95 }} className="text-white">
                   <WordReveal text="ALL EVENTS" delay={0.05} />
