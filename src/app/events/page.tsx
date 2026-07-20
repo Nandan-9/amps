@@ -17,6 +17,7 @@ import type { Event, EventCategory, EventStatus } from '@/types/event';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
 import { EventCard } from '@/components/events/EventCard';
 import { CountdownTimer } from '@/components/events/CountdownTimer';
+import { FlyingPosters } from '@/components/ui/FlyingPosters';
 
 const CATEGORIES: (EventCategory | 'All')[] = [
   'All', 'Workshop', 'Photography', 'Videography', 'Editing', 'Film Making',
@@ -30,6 +31,13 @@ const MARQUEE_ITEMS = [
   '🎬 AMPS × AMRITA', '📽️ CREATIVITY WORKSHOP', '🚀 PROJECT HAIL MARY',
   '🎭 SHORT FLICK FEST', '🏆 DA VINCI CLUE', '🎌 OTAKU CHALLENGE',
   '🎥 FILM SCREENINGS', '✨ AMRITA UNIVERSITY', '🌟 JOIN THE COMMUNITY',
+];
+
+const POSTER_IMAGES = [
+  '/media/poster-11.jpg', '/media/poster-12.jpeg', '/media/poster-13.jpeg',
+  '/media/poster-14.jpg', '/media/poster-15.jpg', '/media/poster-16.jpg',
+  '/media/poster-17.jpg', '/media/poster-18.jpg', '/media/poster-19.jpg',
+  '/media/poster-20.jpeg', '/media/poster-07.jpeg', '/media/poster-08.jpeg',
 ];
 
 function WordReveal({ text, className = '', delay = 0 }: { text: string; className?: string; delay?: number }) {
@@ -153,6 +161,9 @@ export default function EventsPage() {
 
   return (
     <div className="min-h-screen bg-[#030305] text-white selection:bg-purple-500/30 selection:text-purple-200 overflow-x-hidden">
+      {/* ─────────── FULL-PAGE FLYING POSTERS (fixed backdrop) ─────────── */}
+      <FlyingPosters images={POSTER_IMAGES} />
+
       {/* ─────────── NAV ─────────── */}
       <nav className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
         scrolled
@@ -210,15 +221,12 @@ export default function EventsPage() {
         className="relative min-h-[100dvh] flex flex-col items-center justify-center overflow-hidden"
         onMouseMove={handleHeroMouseMove}
       >
-        <motion.div style={{ y: heroLayer1Y }} className="absolute inset-0 z-0">
-          <div className="absolute inset-0 grid-dots opacity-50" />
-        </motion.div>
-
-        <motion.div className="absolute inset-0 z-0 pointer-events-none">
+        {/* Subtle colour tints floating over the poster backdrop */}
+        <motion.div className="absolute inset-0 z-[2] pointer-events-none">
           <motion.div
             className="absolute top-[10%] left-[5%] w-[55vw] h-[55vw] max-w-[800px] max-h-[800px] rounded-full"
             style={{
-              background: 'radial-gradient(circle, rgba(139,92,246,0.10) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(139,92,246,0.12) 0%, transparent 70%)',
               x: useTransform(heroSpringX, v => v * -40),
               y: useTransform(heroSpringY, v => v * -20),
             }}
@@ -226,7 +234,7 @@ export default function EventsPage() {
           <motion.div
             className="absolute bottom-[5%] right-[0%] w-[45vw] h-[45vw] max-w-[700px] max-h-[700px] rounded-full"
             style={{
-              background: 'radial-gradient(circle, rgba(6,182,212,0.08) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(6,182,212,0.10) 0%, transparent 70%)',
               x: useTransform(heroSpringX, v => v * 30),
               y: useTransform(heroSpringY, v => v * 15),
             }}
