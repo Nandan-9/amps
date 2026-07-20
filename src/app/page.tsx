@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { ThreeDMarquee } from "@/components/ui/3d-marquee";
 
 const marqueeImages = [
@@ -49,6 +50,12 @@ export default function Home() {
           className="-mb-4 h-32 w-32 drop-shadow-lg sm:-mb-6 sm:h-56 sm:w-56 md:-mb-8 md:h-72 md:w-72 lg:-mb-10 lg:h-80 lg:w-80 2xl:-mb-12 2xl:h-96 2xl:w-96"
           priority
         />
+        <Link
+          href="/events"
+          className="pointer-events-auto mt-4 rounded-full bg-white px-6 py-2.5 text-xs font-semibold uppercase tracking-widest text-black shadow-[0_0_30px_rgba(255,255,255,0.25)] transition-transform hover:scale-105 sm:mt-6 sm:px-8 sm:py-3 sm:text-sm"
+        >
+          Explore Events
+        </Link>
       </div>
 
       <div className="pointer-events-none absolute inset-x-0 bottom-6 z-30 flex flex-col items-center gap-5 px-4 pb-[env(safe-area-inset-bottom)] sm:bottom-10 sm:gap-6 md:bottom-16">
