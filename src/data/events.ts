@@ -416,7 +416,7 @@ export const events: Event[] = [
     registrationLink: "https://forms.gle/Up5N3aPGkQhcNvGe9",
     registrationFee: 149,
     seats: 50,
-    seatsRemaining: 19,
+    seatsRemaining: 15,
     eligibility:
       "Open to all Amrita students interested in graphic design, video editing, and motion graphics.",
     highlights: [
@@ -476,7 +476,7 @@ export const events: Event[] = [
       }
     ],
     testimonials: [],
-    participantCount: 31,
+    participantCount: 35,
     createdAt: "2026-07-01T00:00:00Z",
     relatedEventIds: ["5", "6"]
   },
