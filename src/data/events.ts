@@ -825,9 +825,7 @@ export const events: Event[] = [
     ],
     tags: ["Merch", "T-Shirt", "Anime", "One Piece", "Attack on Titan", "Spider-Man", "AMPS", "Limited Edition"],
     venue: "Online — Order via Form",
-    startDate: "2026-07-21T00:00:00+05:30",
-    registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLSdTgVhH7q0RlnPyM5qU3KNokE52Ns9GbWUE-iZsbfF74VqQ2A/viewform",
-    registrationFee: "TBA",
+    purchaseLink: "https://docs.google.com/forms/d/e/1FAIpQLSdTgVhH7q0RlnPyM5qU3KNokE52Ns9GbWUE-iZsbfF74VqQ2A/viewform",
     eligibility: "Open to all Amrita students.",
     highlights: [
       "One Piece Edition",

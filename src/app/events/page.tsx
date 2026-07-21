@@ -452,7 +452,7 @@ export default function EventsPage() {
 
                     <div className="flex flex-wrap gap-4">
                       <a
-                        href={featuredEvent.registrationLink} target="_blank" rel="noreferrer"
+                        href={featuredEvent.purchaseLink || featuredEvent.registrationLink} target="_blank" rel="noreferrer"
                         className="group/btn relative inline-block px-8 py-3.5 rounded-xl bg-white text-black text-sm font-bold tracking-wide uppercase overflow-hidden hover:scale-105 transition-transform"
                       >
                         <span className="relative z-10 group-hover/btn:text-black transition-colors">Register Now</span>

@@ -104,6 +104,7 @@ export interface Event {
   endDate?: string;
   registrationDeadline?: string;
   registrationLink?: string;
+  purchaseLink?: string;
   registrationFee?: number | 'Free' | 'TBA';
   seats?: number;
   seatsRemaining?: number;

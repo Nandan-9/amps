@@ -64,7 +64,7 @@ export default function EventDetailPage() {
   const seatsRemaining = event.seatsRemaining ?? 0;
   const registrationFee = event.registrationFee ?? 'Free';
   const registrationDeadline = event.registrationDeadline || '';
-  const registrationLink = event.registrationLink || '#';
+  const registrationLink = event.purchaseLink || event.registrationLink || '#';
   const highlights = event.highlights || [];
   const agenda = event.agenda || [];
   const speakers = event.speakers || [];
