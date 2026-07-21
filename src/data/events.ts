@@ -774,5 +774,36 @@ export const events: Event[] = [
     highlights: ["Inspiring Biographical Drama", "Aerospace Science Focus", "National Award Winning Film"],
     organizers: [{ id: "o1", name: "AMPS", position: "Organizer" }],
     createdAt: "2023-08-01T00:00:00Z"
+  },
+
+  {
+    id: "23",
+    slug: "spider-man-brand-new-day",
+    title: "Spider-Man: Brand New Day",
+    tagline: "A brand new chapter for your friendly neighbourhood Spider-Man.",
+    description: "Join AMPS for a special campus screening of Spider-Man: Brand New Day. Experience the web-slinger's latest adventure on the big screen with fellow fans. A perfect movie night for Marvel enthusiasts and cinema lovers alike.",
+    category: "Movie Screening",
+    status: "upcoming",
+    banner: "https://upload.wikimedia.org/wikipedia/en/thumb/a/a3/Spider-Man_Brand_New_Day_logo.png/220px-Spider-Man_Brand_New_Day_logo.png",
+    gallery: [
+      {
+        id: "g1",
+        url: "https://upload.wikimedia.org/wikipedia/en/thumb/a/a3/Spider-Man_Brand_New_Day_logo.png/220px-Spider-Man_Brand_New_Day_logo.png",
+        alt: "Spider-Man: Brand New Day Poster",
+        width: 1080,
+        height: 1350
+      }
+    ],
+    tags: ["Spider-Man", "Marvel", "Movie", "Screening", "AMPS", "Superhero"],
+    venue: "Sai Cineplex, Ochira",
+    address: "Ochira, Kollam, Kerala",
+    startDate: "2026-07-25T16:30:00+05:30",
+    endDate: "2026-07-25T19:30:00+05:30",
+    registrationLink: "#",
+    registrationFee: "TBA",
+    eligibility: "Open to all Amrita students.",
+    highlights: ["Marvel Cinematic Universe", "Superhero Action Spectacle", "Group Movie Night", "Sai Cineplex Experience"],
+    organizers: [{ id: "o1", name: "AMPS", position: "Organizer" }],
+    createdAt: "2026-07-21T00:00:00Z"
   }
 ];

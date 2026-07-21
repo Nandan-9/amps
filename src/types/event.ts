@@ -103,7 +103,7 @@ export interface Event {
   endDate?: string;
   registrationDeadline?: string;
   registrationLink?: string;
-  registrationFee?: number | 'Free';
+  registrationFee?: number | 'Free' | 'TBA';
   seats?: number;
   seatsRemaining?: number;
   eligibility?: string;
