@@ -21,7 +21,7 @@ import { FlyingPosters } from '@/components/ui/FlyingPosters';
 
 const CATEGORIES: (EventCategory | 'All')[] = [
   'All', 'Workshop', 'Photography', 'Videography', 'Editing', 'Film Making',
-  'Competition', 'Launch Event', 'Anime Event', 'Film Quiz', 'Movie Screening'
+  'Competition', 'Launch Event', 'Anime Event', 'Film Quiz', 'Movie Screening', 'Merchandise'
 ];
 
 const MARQUEE_ITEMS = [

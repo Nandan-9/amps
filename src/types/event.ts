@@ -80,7 +80,8 @@ export type EventCategory =
   | 'Launch Event'
   | 'Anime Event'
   | 'Film Quiz'
-  | 'Movie Screening';
+  | 'Movie Screening'
+  | 'Merchandise';
 
 export type EventStatus = 'upcoming' | 'live' | 'completed' | 'ongoing';
 

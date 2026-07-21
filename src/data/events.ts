@@ -805,5 +805,40 @@ export const events: Event[] = [
     highlights: ["Marvel Cinematic Universe", "Superhero Action Spectacle", "Group Movie Night", "Sai Cineplex Experience"],
     organizers: [{ id: "o1", name: "AMPS", position: "Organizer" }],
     createdAt: "2026-07-21T00:00:00Z"
+  },
+
+  {
+    id: "24",
+    slug: "amps-merch-drop",
+    title: "AMPS Merch Drop",
+    tagline: "Wear Your Fandom. Own Your Story.",
+    description: "The AMPS Official Merchandise Collection is here! Rep your favourite anime and cinema universes with our exclusive custom-printed oversized tees — featuring designs inspired by One Piece, Attack on Titan, Mangalassery, Odyssey, and Spider-Man.\n\nLimited stock. Iconic designs. Order yours now before they're gone.",
+    category: "Merchandise",
+    status: "upcoming",
+    banner: "https://i.ibb.co/W4gP9dLd/tshirt.png",
+    gallery: [
+      { id: "g1", url: "https://i.ibb.co/B5RWJMGV/spiderman.png", alt: "Spider-Man Edition Tee", width: 1200, height: 1800 },
+      { id: "g2", url: "https://i.ibb.co/TMZNTszM/managalaseri.png", alt: "Mangalassery Edition Tee", width: 1200, height: 1800 },
+      { id: "g3", url: "https://i.ibb.co/qLpVQ2DZ/attackontitans.png", alt: "Attack on Titan Edition Tee", width: 1200, height: 1800 },
+      { id: "g4", url: "https://i.ibb.co/fzv2Tkmg/onepiece.png", alt: "One Piece Edition Tee", width: 1200, height: 1800 },
+      { id: "g5", url: "https://i.ibb.co/pj2MtbVV/odyssey.png", alt: "Odyssey Edition Tee", width: 1200, height: 1800 }
+    ],
+    tags: ["Merch", "T-Shirt", "Anime", "One Piece", "Attack on Titan", "Spider-Man", "AMPS", "Limited Edition"],
+    venue: "Online — Order via Form",
+    startDate: "2026-07-21T00:00:00+05:30",
+    registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLSdTgVhH7q0RlnPyM5qU3KNokE52Ns9GbWUE-iZsbfF74VqQ2A/viewform",
+    registrationFee: "TBA",
+    eligibility: "Open to all Amrita students.",
+    highlights: [
+      "One Piece Edition",
+      "Attack on Titan Edition",
+      "Mangalassery Edition",
+      "Odyssey Edition",
+      "Spider-Man Edition",
+      "Premium Oversized Fit",
+      "Limited Stock"
+    ],
+    organizers: [{ id: "o1", name: "AMPS", position: "Organizer" }],
+    createdAt: "2026-07-21T00:00:00Z"
   }
 ];

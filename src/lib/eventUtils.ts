@@ -14,6 +14,7 @@ export const getCategoryColor = (category: EventCategory): string => {
     'Anime Event': 'text-rose-400 bg-rose-400/10 border-rose-400/30',
     'Film Quiz': 'text-amber-400 bg-amber-400/10 border-amber-400/30',
     'Movie Screening': 'text-pink-400 bg-pink-400/10 border-pink-400/30',
+    'Merchandise': 'text-yellow-400 bg-yellow-400/10 border-yellow-400/30',
   };
   return map[category] || 'text-gray-400 bg-gray-400/10 border-gray-400/30';
 };
