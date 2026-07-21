@@ -721,7 +721,7 @@ export const events: Event[] = [
     registrationDeadline: "2026-07-22T23:59:59+05:30",
     registrationLink: "#",
     registrationFee: "Free",
-    seats: 437,
+    seats: 450,
     seatsRemaining: 0,
     eligibility: "Open to all Amrita students.",
     highlights: ["Cosmic Exploration Discussions", "Science Fiction Visual Storytelling", "Physics & Space Science Interactive Session"],
@@ -738,7 +738,7 @@ export const events: Event[] = [
     resources: [],
     testimonials: [],
     winners: [],
-    participantCount: 437,
+    participantCount: 450,
     createdAt: "2026-07-18T00:00:00Z",
     relatedEventIds: ["16", "18"]
   },
