@@ -455,7 +455,9 @@ export default function EventsPage() {
                         href={featuredEvent.purchaseLink || featuredEvent.registrationLink} target="_blank" rel="noreferrer"
                         className="group/btn relative inline-block px-8 py-3.5 rounded-xl bg-white text-black text-sm font-bold tracking-wide uppercase overflow-hidden hover:scale-105 transition-transform"
                       >
-                        <span className="relative z-10 group-hover/btn:text-black transition-colors">Register Now</span>
+                        <span className="relative z-10 group-hover/btn:text-black transition-colors">
+                          {featuredEvent.purchaseLink ? 'Purchase Now' : 'Register Now'}
+                        </span>
                         <div className="absolute inset-0 bg-gradient-to-r from-violet-400 to-cyan-400 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300" />
                       </a>
                       <Link

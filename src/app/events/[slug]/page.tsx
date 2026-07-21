@@ -62,7 +62,7 @@ export default function EventDetailPage() {
   const address = event.address || '';
   const seats = event.seats ?? 0;
   const seatsRemaining = event.seatsRemaining ?? 0;
-  const registrationFee = event.registrationFee ?? 'Free';
+  const registrationFee = event.registrationFee;
   const registrationDeadline = event.registrationDeadline || '';
   const registrationLink = event.purchaseLink || event.registrationLink || '#';
   const highlights = event.highlights || [];
@@ -470,12 +470,14 @@ export default function EventDetailPage() {
 
                 <h3 className="text-xl font-bold text-white mb-6 pr-8">{event.title}</h3>
 
-                <div className="flex items-baseline gap-2 mb-8 border-b border-white/10 pb-6">
-                  <span className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-white/70">
-                    {typeof registrationFee === 'number' ? `₹${registrationFee}` : registrationFee}
-                  </span>
-                  {typeof registrationFee === 'number' && <span className="text-sm text-white/40">per person</span>}
-                </div>
+                {registrationFee !== undefined && (
+                  <div className="flex items-baseline gap-2 mb-8 border-b border-white/10 pb-6">
+                    <span className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-white/70">
+                      {typeof registrationFee === 'number' ? `₹${registrationFee}` : registrationFee}
+                    </span>
+                    {typeof registrationFee === 'number' && <span className="text-sm text-white/40">per person</span>}
+                  </div>
+                )}
 
                 {!isPast ? (
                   <div className="space-y-6 mb-8">
@@ -524,7 +526,7 @@ export default function EventDetailPage() {
                     }`}
                     onClick={(e) => { if (seatsRemaining === 0 && seats > 0) e.preventDefault(); }}
                   >
-                    {seatsRemaining === 0 && seats > 0 ? 'Sold Out' : 'Register Now'}
+                    {seatsRemaining === 0 && seats > 0 ? 'Sold Out' : (event.purchaseLink ? 'Purchase Now' : 'Register Now')}
                   </a>
                 ) : null}
 
@@ -619,9 +621,11 @@ export default function EventDetailPage() {
         <div className="lg:hidden fixed bottom-0 inset-x-0 z-50 glass border-t border-white/10 p-4 bg-[#0A0E1A]/90 backdrop-blur-2xl">
           <div className="flex items-center justify-between gap-4">
             <div>
-              <div className="text-xl font-bold text-white">
-                {typeof registrationFee === 'number' ? `₹${registrationFee}` : registrationFee}
-              </div>
+              {registrationFee !== undefined && (
+                <div className="text-xl font-bold text-white">
+                  {typeof registrationFee === 'number' ? `₹${registrationFee}` : registrationFee}
+                </div>
+              )}
               {seats > 0 && (
                 <div className={`text-xs ${seatsRemaining < 10 ? 'text-red-400' : 'text-cyan-400'}`}>
                   {seatsRemaining} seats left
@@ -639,7 +643,7 @@ export default function EventDetailPage() {
               }`}
               onClick={(e) => { if (seatsRemaining === 0 && seats > 0) e.preventDefault(); }}
             >
-              {seatsRemaining === 0 && seats > 0 ? 'Sold Out' : 'Register Now'}
+              {seatsRemaining === 0 && seats > 0 ? 'Sold Out' : (event.purchaseLink ? 'Purchase Now' : 'Register Now')}
             </a>
           </div>
         </div>
