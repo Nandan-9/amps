@@ -58,7 +58,7 @@ export default function EventDetailPage() {
 
   const banner = event.banner || 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80';
   const description = event.description || '';
-  const venue = event.venue || 'TBA';
+  const venue = event.venue;
   const address = event.address || '';
   const seats = event.seats ?? 0;
   const seatsRemaining = event.seatsRemaining ?? 0;
@@ -161,13 +161,15 @@ export default function EventDetailPage() {
                   <div className="w-px h-5 bg-white/20 hidden sm:block" />
                 </>
               )}
-              <div className="flex items-center gap-2">
-                <MapPin className="w-5 h-5 text-cyan-400" />
-                {venue}
-              </div>
+              {venue && (
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-5 h-5 text-cyan-400" />
+                  {venue}
+                </div>
+              )}
               {(isPast || seats > 0) && (
                 <>
-                  <div className="w-px h-5 bg-white/20 hidden sm:block" />
+                  {(event.startDate || venue) && <div className="w-px h-5 bg-white/20 hidden sm:block" />}
                   <div className="flex items-center gap-2">
                     <Users className="w-5 h-5 text-fuchsia-400" />
                     {isPast ? `${event.participantCount || 100}+ Attendees` : `${seats} Seats`}

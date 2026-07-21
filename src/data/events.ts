@@ -824,7 +824,6 @@ export const events: Event[] = [
       { id: "g5", url: "https://i.ibb.co/pj2MtbVV/odyssey.png", alt: "Odyssey Edition Tee", width: 1200, height: 1800 }
     ],
     tags: ["Merch", "T-Shirt", "Anime", "One Piece", "Attack on Titan", "Spider-Man", "AMPS", "Limited Edition"],
-    venue: "Online — Order via Form",
     purchaseLink: "https://docs.google.com/forms/d/e/1FAIpQLSdTgVhH7q0RlnPyM5qU3KNokE52Ns9GbWUE-iZsbfF74VqQ2A/viewform",
     eligibility: "Open to all Amrita students.",
     highlights: [
