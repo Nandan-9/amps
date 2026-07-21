@@ -784,11 +784,11 @@ export const events: Event[] = [
     description: "Join AMPS for a special campus screening of Spider-Man: Brand New Day. Experience the web-slinger's latest adventure on the big screen with fellow fans. A perfect movie night for Marvel enthusiasts and cinema lovers alike.",
     category: "Movie Screening",
     status: "upcoming",
-    banner: "https://upload.wikimedia.org/wikipedia/en/thumb/a/a3/Spider-Man_Brand_New_Day_logo.png/220px-Spider-Man_Brand_New_Day_logo.png",
+    banner: "https://image.tmdb.org/t/p/w500/x19dchU8e38vQfW4epzOsQNLuZ2.jpg",
     gallery: [
       {
         id: "g1",
-        url: "https://upload.wikimedia.org/wikipedia/en/thumb/a/a3/Spider-Man_Brand_New_Day_logo.png/220px-Spider-Man_Brand_New_Day_logo.png",
+        url: "https://image.tmdb.org/t/p/w500/x19dchU8e38vQfW4epzOsQNLuZ2.jpg",
         alt: "Spider-Man: Brand New Day Poster",
         width: 1080,
         height: 1350
