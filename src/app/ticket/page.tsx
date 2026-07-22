@@ -79,7 +79,7 @@ export default function TicketPage() {
         className="pointer-events-none absolute inset-0 z-10"
         style={{
           background:
-            'radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 10%, rgba(0,0,0,1) 80%)',
+            'radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 50%, rgba(0,0,0,1) 80%)',
         }}
       />
 
