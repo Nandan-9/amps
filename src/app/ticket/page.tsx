@@ -70,6 +70,7 @@ export default function TicketPage() {
       setErrorMessage('Network error. Please try again.');
       setStatus('error');
     }
+    
   };
 
   return (
