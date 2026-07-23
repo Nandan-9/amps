@@ -1,6 +1,7 @@
 import { getDownloadStats } from '@/lib/downloads';
 import { getTicketOverview } from '@/lib/tickets';
 import { Ticket, Users, CheckCircle2 } from 'lucide-react';
+import { SearchableTable } from '@/components/admin/SearchableTable';
 
 export const dynamic = 'force-dynamic';
 
@@ -34,34 +35,24 @@ export default async function AdminPage() {
             <p className="text-xs font-bold uppercase tracking-widest text-white/35">Downloaded By</p>
           </div>
 
-          {downloads.length === 0 ? (
-            <p className="px-6 py-8 text-sm text-white/40 text-center">No downloads yet.</p>
-          ) : (
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="text-left text-xs font-bold uppercase tracking-widest text-white/35 border-b border-white/8">
-                    <th className="px-6 py-3">Name</th>
-                    <th className="px-6 py-3">Roll Number</th>
-                    <th className="px-6 py-3">Email</th>
-                    <th className="px-6 py-3">Downloaded At</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {downloads.map((d, i) => (
-                    <tr key={i} className="border-b border-white/5 last:border-0">
-                      <td className="px-6 py-3 text-white">{d.name}</td>
-                      <td className="px-6 py-3 text-white/60">{d.rollNumber}</td>
-                      <td className="px-6 py-3 text-white/60">{d.email}</td>
-                      <td className="px-6 py-3 text-white/40">
-                        {new Date(d.downloadedAt).toLocaleString()}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          )}
+          <SearchableTable
+            rows={downloads}
+            keyExtractor={(d, i) => i}
+            searchText={d => `${d.name} ${d.rollNumber} ${d.email}`}
+            searchPlaceholder="Search by name, roll number, or email..."
+            emptyMessage="No downloads yet."
+            columns={[
+              { header: 'Name', render: d => <span className="text-white">{d.name}</span> },
+              { header: 'Roll Number', render: d => <span className="text-white/60">{d.rollNumber}</span> },
+              { header: 'Email', render: d => <span className="text-white/60">{d.email}</span> },
+              {
+                header: 'Downloaded At',
+                render: d => (
+                  <span className="text-white/40">{new Date(d.downloadedAt).toLocaleString()}</span>
+                ),
+              },
+            ]}
+          />
         </div>
 
         <h2
@@ -89,40 +80,34 @@ export default async function AdminPage() {
             <p className="text-xs font-bold uppercase tracking-widest text-white/35">Tickets</p>
           </div>
 
-          {tickets.length === 0 ? (
-            <p className="px-6 py-8 text-sm text-white/40 text-center">No tickets issued yet.</p>
-          ) : (
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="text-left text-xs font-bold uppercase tracking-widest text-white/35 border-b border-white/8">
-                    <th className="px-6 py-3">Name</th>
-                    <th className="px-6 py-3">Roll Number</th>
-                    <th className="px-6 py-3">Verified</th>
-                    <th className="px-6 py-3">Verified At</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {tickets.map(t => (
-                    <tr key={t.ticketId} className="border-b border-white/5 last:border-0">
-                      <td className="px-6 py-3 text-white">{t.name}</td>
-                      <td className="px-6 py-3 text-white/60">{t.rollNumber}</td>
-                      <td className="px-6 py-3">
-                        {t.checkedInAt ? (
-                          <span className="text-emerald-400">✓</span>
-                        ) : (
-                          <span className="text-white/25">—</span>
-                        )}
-                      </td>
-                      <td className="px-6 py-3 text-white/40">
-                        {t.checkedInAt ? new Date(t.checkedInAt).toLocaleString() : '—'}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          )}
+          <SearchableTable
+            rows={tickets}
+            keyExtractor={t => t.ticketId}
+            searchText={t => `${t.name} ${t.rollNumber}`}
+            searchPlaceholder="Search by name or roll number..."
+            emptyMessage="No tickets issued yet."
+            columns={[
+              { header: 'Name', render: t => <span className="text-white">{t.name}</span> },
+              { header: 'Roll Number', render: t => <span className="text-white/60">{t.rollNumber}</span> },
+              {
+                header: 'Verified',
+                render: t =>
+                  t.checkedInAt ? (
+                    <span className="text-emerald-400">✓</span>
+                  ) : (
+                    <span className="text-white/25">—</span>
+                  ),
+              },
+              {
+                header: 'Verified At',
+                render: t => (
+                  <span className="text-white/40">
+                    {t.checkedInAt ? new Date(t.checkedInAt).toLocaleString() : '—'}
+                  </span>
+                ),
+              },
+            ]}
+          />
         </div>
       </div>
     </div>
