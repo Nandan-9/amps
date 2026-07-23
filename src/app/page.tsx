@@ -32,6 +32,13 @@ export default function Home() {
     <main className="relative h-dvh w-full overflow-hidden bg-black">
       <ThreeDMarquee images={marqueeImages} className="h-dvh w-full rounded-none max-sm:h-dvh" />
 
+      <Link
+        href="/ticket"
+        className="pointer-events-auto absolute right-4 top-[calc(env(safe-area-inset-top)+1rem)] z-30 rounded-full border border-white/20 bg-white/5 px-4 py-2 text-[10px] font-semibold uppercase tracking-widest text-white/80 backdrop-blur-md transition-colors hover:border-white/40 hover:bg-white/10 hover:text-white sm:px-5 sm:py-2.5 sm:text-xs"
+      >
+        Get Tickets
+      </Link>
+
       <div
         className="pointer-events-none absolute inset-0 z-10"
         style={{
