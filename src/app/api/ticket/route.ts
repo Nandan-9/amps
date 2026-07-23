@@ -2,8 +2,10 @@ import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 import { PDFDocument, StandardFonts, rgb } from 'pdf-lib';
+import QRCode from 'qrcode';
 import { findParticipant } from '@/lib/participants';
 import { recordDownload } from '@/lib/downloads';
+import { getOrCreateTicket } from '@/lib/tickets';
 
 export async function POST(request: NextRequest) {
   const body = await request.json().catch(() => null);
@@ -27,6 +29,8 @@ export async function POST(request: NextRequest) {
   } catch (err) {
     console.error('Failed to record ticket download:', err);
   }
+
+  const ticket = await getOrCreateTicket(participant);
 
   const templatePath = path.join(process.cwd(), 'public', 'tickett.pdf');
   const templateBytes = fs.readFileSync(templatePath);
@@ -66,6 +70,23 @@ export async function POST(request: NextRequest) {
 
   drawCentered(participant.name.toUpperCase(), 397.5, 32, width - margin * 2 - 20);
   drawCentered(participant.rollNumber.toUpperCase(), 292.5, 28, width - margin * 2 - 20);
+
+  // QR encodes only the opaque ticket UUID — verification always round-trips
+  // through the server, so the code itself carries no participant data.
+  const qrPngBuffer = await QRCode.toBuffer(ticket.ticketId, {
+    type: 'png',
+    errorCorrectionLevel: 'M',
+    margin: 1,
+    width: 220,
+  });
+  const qrImage = await pdfDoc.embedPng(qrPngBuffer);
+  const qrSize = 100;
+  page.drawImage(qrImage, {
+    x: (width - qrSize) / 2,
+    y: 150,
+    width: qrSize,
+    height: qrSize,
+  });
 
   const ticketBytes = await pdfDoc.save();
 

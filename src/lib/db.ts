@@ -28,6 +28,17 @@ export function ensureSchema(): Promise<void> {
         email TEXT NOT NULL,
         downloaded_at TIMESTAMPTZ NOT NULL DEFAULT now()
       );
+
+      CREATE TABLE IF NOT EXISTS tickets (
+        id SERIAL PRIMARY KEY,
+        ticket_id UUID NOT NULL UNIQUE,
+        roll_number TEXT NOT NULL UNIQUE,
+        name TEXT NOT NULL,
+        email TEXT NOT NULL,
+        created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+        checked_in_at TIMESTAMPTZ,
+        checked_in_by TEXT
+      );
     `).then(() => undefined);
   }
   return schemaReady;
