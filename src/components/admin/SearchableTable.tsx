@@ -1,7 +1,7 @@
 'use client';
 
-import { useMemo, useState, type ReactNode } from 'react';
-import { Search } from 'lucide-react';
+import { useEffect, useMemo, useState, type ReactNode } from 'react';
+import { ChevronLeft, ChevronRight, Search } from 'lucide-react';
 
 interface Column<T> {
   header: string;
@@ -15,6 +15,7 @@ interface SearchableTableProps<T> {
   searchText: (row: T) => string;
   searchPlaceholder?: string;
   emptyMessage: string;
+  pageSize?: number;
 }
 
 export function SearchableTable<T>({
@@ -24,14 +25,31 @@ export function SearchableTable<T>({
   searchText,
   searchPlaceholder = 'Search...',
   emptyMessage,
+  pageSize = 10,
 }: SearchableTableProps<T>) {
   const [query, setQuery] = useState('');
+  const [page, setPage] = useState(1);
 
   const filteredRows = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (!q) return rows;
     return rows.filter(row => searchText(row).toLowerCase().includes(q));
   }, [rows, query, searchText]);
+
+  const pageCount = Math.max(1, Math.ceil(filteredRows.length / pageSize));
+
+  useEffect(() => {
+    setPage(1);
+  }, [query, rows]);
+
+  useEffect(() => {
+    if (page > pageCount) setPage(pageCount);
+  }, [page, pageCount]);
+
+  const paginatedRows = useMemo(() => {
+    const start = (page - 1) * pageSize;
+    return filteredRows.slice(start, start + pageSize);
+  }, [filteredRows, page, pageSize]);
 
   if (rows.length === 0) {
     return <p className="px-6 py-8 text-sm text-white/40 text-center">{emptyMessage}</p>;
@@ -67,7 +85,7 @@ export function SearchableTable<T>({
               </tr>
             </thead>
             <tbody>
-              {filteredRows.map((row, i) => (
+              {paginatedRows.map((row, i) => (
                 <tr key={keyExtractor(row, i)} className="border-b border-white/5 last:border-0">
                   {columns.map(col => (
                     <td key={col.header} className="px-6 py-3">
@@ -78,6 +96,32 @@ export function SearchableTable<T>({
               ))}
             </tbody>
           </table>
+        </div>
+      )}
+
+      {filteredRows.length > pageSize && (
+        <div className="flex items-center justify-between gap-4 px-6 py-3 border-t border-white/8">
+          <p className="text-xs text-white/35">
+            Page {page} of {pageCount}
+          </p>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setPage(p => Math.max(1, p - 1))}
+              disabled={page === 1}
+              className="w-8 h-8 flex items-center justify-center rounded-lg border border-white/10 text-white/60 hover:bg-white/5 disabled:opacity-30 disabled:hover:bg-transparent"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+            <button
+              type="button"
+              onClick={() => setPage(p => Math.min(pageCount, p + 1))}
+              disabled={page === pageCount}
+              className="w-8 h-8 flex items-center justify-center rounded-lg border border-white/10 text-white/60 hover:bg-white/5 disabled:opacity-30 disabled:hover:bg-transparent"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
         </div>
       )}
     </div>
