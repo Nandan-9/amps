@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { PDFDocument, StandardFonts, rgb } from 'pdf-lib';
 import { findParticipant } from '@/lib/participants';
+import { recordDownload } from '@/lib/downloads';
 
 export async function POST(request: NextRequest) {
   const body = await request.json().catch(() => null);
@@ -19,6 +20,12 @@ export async function POST(request: NextRequest) {
       { error: 'No matching registration found. Check your roll number and email.' },
       { status: 404 }
     );
+  }
+
+  try {
+    await recordDownload(participant);
+  } catch (err) {
+    console.error('Failed to record ticket download:', err);
   }
 
   const templatePath = path.join(process.cwd(), 'public', 'tickett.pdf');
