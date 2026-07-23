@@ -1,7 +1,8 @@
 import { getDownloadStats } from '@/lib/downloads';
 import { getTicketOverview } from '@/lib/tickets';
 import { Ticket, Users, CheckCircle2 } from 'lucide-react';
-import { SearchableTable } from '@/components/admin/SearchableTable';
+import { DownloadsTable } from '@/components/admin/DownloadsTable';
+import { TicketsTable } from '@/components/admin/TicketsTable';
 
 export const dynamic = 'force-dynamic';
 
@@ -35,24 +36,7 @@ export default async function AdminPage() {
             <p className="text-xs font-bold uppercase tracking-widest text-white/35">Downloaded By</p>
           </div>
 
-          <SearchableTable
-            rows={downloads}
-            keyExtractor={(d, i) => i}
-            searchText={d => `${d.name} ${d.rollNumber} ${d.email}`}
-            searchPlaceholder="Search by name, roll number, or email..."
-            emptyMessage="No downloads yet."
-            columns={[
-              { header: 'Name', render: d => <span className="text-white">{d.name}</span> },
-              { header: 'Roll Number', render: d => <span className="text-white/60">{d.rollNumber}</span> },
-              { header: 'Email', render: d => <span className="text-white/60">{d.email}</span> },
-              {
-                header: 'Downloaded At',
-                render: d => (
-                  <span className="text-white/40">{new Date(d.downloadedAt).toLocaleString()}</span>
-                ),
-              },
-            ]}
-          />
+          <DownloadsTable downloads={downloads} />
         </div>
 
         <h2
@@ -80,34 +64,7 @@ export default async function AdminPage() {
             <p className="text-xs font-bold uppercase tracking-widest text-white/35">Tickets</p>
           </div>
 
-          <SearchableTable
-            rows={tickets}
-            keyExtractor={t => t.ticketId}
-            searchText={t => `${t.name} ${t.rollNumber}`}
-            searchPlaceholder="Search by name or roll number..."
-            emptyMessage="No tickets issued yet."
-            columns={[
-              { header: 'Name', render: t => <span className="text-white">{t.name}</span> },
-              { header: 'Roll Number', render: t => <span className="text-white/60">{t.rollNumber}</span> },
-              {
-                header: 'Verified',
-                render: t =>
-                  t.checkedInAt ? (
-                    <span className="text-emerald-400">✓</span>
-                  ) : (
-                    <span className="text-white/25">—</span>
-                  ),
-              },
-              {
-                header: 'Verified At',
-                render: t => (
-                  <span className="text-white/40">
-                    {t.checkedInAt ? new Date(t.checkedInAt).toLocaleString() : '—'}
-                  </span>
-                ),
-              },
-            ]}
-          />
+          <TicketsTable tickets={tickets} />
         </div>
       </div>
     </div>
